@@ -3,677 +3,361 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>福气研究所 · 手机壁纸</title>
+<title>福气研究所 · 壁纸灵感</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Georgia', serif;
-  background: linear-gradient(135deg, #fff8f0 0%, #ffe8d0 50%, #fff0e8 100%);
+  background: linear-gradient(160deg, #fff8f0 0%, #fdebd0 60%, #fff0e8 100%);
   min-height: 100vh;
   color: #5a2a10;
 }
+
 header {
   text-align: center;
-  padding: 32px 20px 16px;
+  padding: 36px 20px 20px;
 }
-header .logo-text {
-  font-size: 2rem; font-weight: 900;
-  color: #c0380a; letter-spacing: 6px;
-  text-shadow: 0 2px 8px #ffcc8060;
-}
-header .tagline { margin-top: 6px; font-size: 0.82rem; color: #e07030; letter-spacing: 3px; }
+.logo { font-size: 2rem; font-weight: 900; color: #c0380a; letter-spacing: 8px; text-shadow: 0 2px 12px #ffcc8050; }
+.sub  { font-size: 0.78rem; color: #e07030; letter-spacing: 4px; margin-top: 6px; }
 
-.source-tabs {
-  display: flex; justify-content: center;
-  gap: 10px; padding: 12px 20px 0; flex-wrap: wrap;
-}
-.src-tab {
-  padding: 7px 18px; border-radius: 50px;
-  border: 2px solid #ffb07a; background: #fff8f0;
-  color: #c0380a; font-size: 0.8rem; cursor: pointer;
-  transition: all 0.2s; letter-spacing: 1px;
-}
-.src-tab.active { background: #c0380a; color: #ffd740; border-color: #c0380a; font-weight: bold; }
-.src-tab:hover:not(.active) { background: #fff0e0; }
-.source-badge {
-  display: inline-block; font-size: 0.65rem;
-  padding: 2px 8px; border-radius: 50px; margin-left: 4px; font-weight: bold;
-}
-.badge-ai    { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
-.badge-wiki  { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
-.badge-pexels{ background: #fce4ec; color: #880e4f; border: 1px solid #f48fb1; }
-
-.search-section {
+.search-wrap {
   display: flex; flex-direction: column;
-  align-items: center; padding: 18px 20px 12px; gap: 12px;
+  align-items: center; gap: 14px;
+  padding: 16px 20px 20px;
 }
-.search-row { display: flex; gap: 10px; width: 100%; max-width: 600px; }
+.search-row {
+  display: flex; gap: 10px;
+  width: 100%; max-width: 560px;
+}
 .search-row input {
-  flex: 1; padding: 13px 20px;
+  flex: 1; padding: 13px 22px;
   border: 2px solid #ffb07a; border-radius: 50px;
   font-size: 0.95rem; background: #fffaf5;
-  color: #5a2a10; outline: none; transition: border 0.2s;
+  color: #5a2a10; outline: none; font-family: inherit;
+  transition: border 0.2s;
 }
-.search-row input:focus { border-color: #e8190a; }
+.search-row input:focus { border-color: #c0380a; }
 .search-row button {
-  padding: 13px 24px;
-  background: linear-gradient(135deg, #ff6b35, #e8190a);
+  padding: 13px 26px;
+  background: linear-gradient(135deg, #ff6b35, #c0380a);
   color: #ffd740; border: none; border-radius: 50px;
   font-size: 0.95rem; font-weight: bold; cursor: pointer;
-  box-shadow: 0 4px 14px #e8190a40; transition: transform 0.15s;
+  box-shadow: 0 4px 16px #c0380a35; transition: transform 0.15s, box-shadow 0.15s;
+  font-family: inherit; letter-spacing: 1px;
 }
-.search-row button:hover { transform: translateY(-2px); }
+.search-row button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px #c0380a45; }
+.search-row button:active { transform: none; }
 
-.tag-row { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; max-width: 640px; }
+.tags {
+  display: flex; flex-wrap: wrap;
+  gap: 8px; justify-content: center;
+  max-width: 620px;
+}
 .tag {
-  padding: 5px 14px; border-radius: 50px;
+  padding: 6px 16px; border-radius: 50px;
   background: #fff3e0; border: 1.5px solid #ffb07a;
-  color: #c0380a; font-size: 0.78rem; cursor: pointer;
-  transition: all 0.2s; letter-spacing: 1px;
+  color: #b03000; font-size: 0.78rem; cursor: pointer;
+  transition: all 0.2s; letter-spacing: 0.5px;
+  user-select: none;
 }
-.tag:hover, .tag.active { background: #e8190a; color: #ffd740; border-color: #e8190a; }
-
-.mode-toggle { display: flex; justify-content: center; margin: 4px 0; }
-.mode-btn {
-  padding: 7px 22px; border: 2px solid #ffb07a;
-  background: #fff8f0; color: #c0380a;
-  font-size: 0.82rem; cursor: pointer; transition: all 0.2s;
-}
-.mode-btn:first-child { border-radius: 50px 0 0 50px; }
-.mode-btn:last-child  { border-radius: 0 50px 50px 0; border-left: none; }
-.mode-btn.active { background: #e8190a; color: #ffd740; border-color: #e8190a; font-weight: bold; }
-
-.info-box {
-  max-width: 640px; margin: 0 auto 4px;
-  padding: 8px 16px; border-radius: 12px;
-  font-size: 0.75rem; line-height: 1.5; text-align: center;
-}
-.info-ai    { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
-.info-wiki  { background: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
-.info-pexels{ background: #fce4ec; color: #880e4f; border: 1px solid #f8bbd0; }
-
-.ai-area {
-  display: none; flex-direction: column;
-  align-items: center; gap: 10px; padding: 0 20px 12px;
-  max-width: 640px; margin: 0 auto;
-}
-.ai-area.show { display: flex; }
-.style-row { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
-.style-chip {
-  padding: 4px 12px; border-radius: 50px;
-  border: 1.5px solid #a5d6a7; background: #f1f8f1;
-  color: #2e7d32; font-size: 0.74rem; cursor: pointer; transition: all 0.2s;
-}
-.style-chip:hover, .style-chip.active { background: #2e7d32; color: white; border-color: #2e7d32; }
+.tag:hover  { background: #fde0c0; border-color: #c0380a; }
+.tag.active { background: #c0380a; color: #ffd740; border-color: #c0380a; }
 
 .loading {
   display: none; text-align: center;
-  padding: 40px; color: #c0380a; font-size: 1rem; letter-spacing: 2px;
+  padding: 50px 20px; color: #c0380a; letter-spacing: 3px; font-size: 0.9rem;
 }
 .spinner {
-  display: inline-block; width: 28px; height: 28px;
-  border: 3px solid #ffcc80; border-top-color: #e8190a;
-  border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 10px;
+  width: 30px; height: 30px;
+  border: 3px solid #ffd0a0; border-top-color: #c0380a;
+  border-radius: 50%; animation: spin 0.8s linear infinite;
+  margin: 0 auto 14px;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
-.empty { text-align: center; padding: 40px; color: #c09070; font-size: 0.9rem; }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-  gap: 18px; padding: 16px 22px 40px;
-  max-width: 1100px; margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px; padding: 8px 24px 60px;
+  max-width: 1000px; margin: 0 auto;
 }
-.phone-card {
+
+.card {
   display: flex; flex-direction: column;
-  align-items: center; gap: 8px;
-  cursor: pointer; transition: transform 0.2s;
+  align-items: center; gap: 0;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
-.phone-card:hover { transform: translateY(-4px); }
-.phone-frame {
-  position: relative; background: #111;
-  border-radius: 22px; border: 3px solid #333;
-  overflow: hidden; box-shadow: 0 8px 28px #0004;
-  width: 136px; height: 272px;
+.card:hover { transform: translateY(-5px); }
+
+.phone {
+  position: relative;
+  width: 130px; height: 265px;
+  background: #0e0e0e;
+  border-radius: 24px;
+  border: 3px solid #2a2a2a;
+  overflow: hidden;
+  box-shadow: 0 10px 30px #0003, 0 2px 6px #0002;
 }
-.phone-frame::before {
-  content: ''; position: absolute;
-  top: 8px; left: 50%; transform: translateX(-50%);
-  width: 38px; height: 7px;
-  background: #222; border-radius: 10px; z-index: 10;
+.phone::before {
+  content: '';
+  position: absolute; top: 9px;
+  left: 50%; transform: translateX(-50%);
+  width: 36px; height: 6px;
+  background: #1a1a1a; border-radius: 10px; z-index: 10;
 }
-.phone-frame img {
+.phone-img {
   width: 100%; height: 100%;
   object-fit: cover; display: block;
   opacity: 0; transition: opacity 0.5s;
 }
-.lock-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg,rgba(0,0,0,.2) 0%,transparent 40%,rgba(0,0,0,.1) 100%);
-  display: flex; flex-direction: column;
-  align-items: center; padding-top: 26px; z-index: 5;
-}
-.lock-time { color: #fff; font-weight: 300; text-shadow: 0 1px 6px #0006; letter-spacing: 2px; }
-.lock-date { color: rgba(255,255,255,.85); font-size: .5rem; letter-spacing: 1px; margin-top: 2px; }
-.home-overlay {
-  position: absolute; inset: 0; z-index: 5;
-  display: grid; grid-template-rows: 1fr auto;
-  padding: 16px 9px 9px; gap: 5px;
-}
-.app-grid {
-  display: grid; grid-template-columns: repeat(4,1fr);
-  grid-template-rows: repeat(3,1fr); gap: 5px;
-  align-content: start; padding-top: 8px;
-}
-.app-icon { width: 100%; aspect-ratio: 1; background: rgba(255,200,170,.55); border-radius: 9px; backdrop-filter: blur(4px); }
-.dock {
-  display: grid; grid-template-columns: repeat(4,1fr); gap: 5px;
-  background: rgba(255,190,160,.38); border-radius: 13px;
-  padding: 5px; backdrop-filter: blur(8px);
-}
-.dock-icon { aspect-ratio: 1; background: rgba(255,200,180,.55); border-radius: 9px; }
+.phone-img.loaded { opacity: 1; }
 
-.card-bottom { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.card-src { font-size: .68rem; color: #a05020; opacity: .8; }
-.dl-btn {
-  font-size: .72rem; padding: 5px 14px;
-  background: linear-gradient(135deg,#ff6b35,#e8190a);
-  color: #ffd740; border: none; border-radius: 50px;
-  cursor: pointer; box-shadow: 0 2px 8px #e8190a30; transition: transform .15s;
-}
-.dl-btn:hover { transform: scale(1.05); }
-
-/* img loading skeleton */
 .skeleton {
   position: absolute; inset: 0;
-  background: linear-gradient(90deg,#f5d5b8 25%,#ffe0c0 50%,#f5d5b8 75%);
+  background: linear-gradient(90deg, #f0d0b0 25%, #fde8c8 50%, #f0d0b0 75%);
   background-size: 200% 100%;
-  animation: shimmer 1.2s infinite;
+  animation: shimmer 1.3s infinite;
 }
 @keyframes shimmer { to { background-position: -200% 0; } }
 
-/* MODAL */
-.modal-bg {
+/* lock screen overlay */
+.lock-ov {
+  position: absolute; inset: 0; z-index: 5;
+  background: linear-gradient(180deg, rgba(0,0,0,0.22) 0%, transparent 45%);
+  display: flex; flex-direction: column;
+  align-items: center; padding-top: 28px;
+  pointer-events: none;
+}
+.l-time { color: #fff; font-size: 1.4rem; font-weight: 200; letter-spacing: 3px; text-shadow: 0 1px 8px #0007; }
+.l-date { color: rgba(255,255,255,0.8); font-size: 0.46rem; letter-spacing: 1.5px; margin-top: 2px; }
+
+.empty { text-align: center; padding: 60px 20px; color: #c09070; font-size: 0.9rem; grid-column: 1/-1; }
+
+/* LIGHTBOX */
+.lb-bg {
   display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,.6); z-index: 100;
+  background: rgba(10,2,0,0.75); z-index: 200;
   align-items: center; justify-content: center;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
 }
-.modal-bg.open { display: flex; }
-.modal {
-  background: #fff8f0; border-radius: 24px;
-  padding: 26px 22px; max-width: 370px; width: 90%;
-  text-align: center; box-shadow: 0 20px 60px #0004; position: relative;
+.lb-bg.open { display: flex; }
+.lb-inner {
+  position: relative; display: flex;
+  flex-direction: column; align-items: center; gap: 16px;
 }
-.modal-close {
-  position: absolute; top: 12px; right: 16px;
-  font-size: 1.3rem; color: #c0380a; cursor: pointer; border: none; background: none;
+.lb-phones { display: flex; gap: 20px; }
+.lb-close {
+  position: absolute; top: -40px; right: 0;
+  color: #ffcc80; font-size: 1.6rem; cursor: pointer;
+  border: none; background: none; line-height: 1;
 }
-.modal h2 { color: #c0380a; font-size: 1rem; letter-spacing: 2px; }
-.modal-meta { font-size: .75rem; color: #a05020; margin: 6px 0 12px; }
-.modal-phones { display: flex; justify-content: center; gap: 16px; margin: 12px 0; }
-.modal-dl-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
-.modal-dl-btn {
-  padding: 9px 18px; border-radius: 50px;
-  border: 2px solid #ffb07a; background: #fff3e0;
-  color: #c0380a; font-size: .78rem; cursor: pointer; transition: all .2s;
+.lb-prompt {
+  background: rgba(255,248,240,0.12);
+  border: 1px solid rgba(255,200,120,0.3);
+  border-radius: 12px; padding: 10px 18px;
+  color: #ffddaa; font-size: 0.72rem;
+  max-width: 340px; text-align: center; line-height: 1.6;
 }
-.modal-dl-btn:hover { background: #e8190a; color: #ffd740; border-color: #e8190a; }
-.modal-dl-btn.primary {
-  background: linear-gradient(135deg,#ff6b35,#e8190a);
-  color: #ffd740; border-color: transparent;
-}
-.modal-credit { font-size: .65rem; color: #b07050; margin-top: 10px; opacity: .8; }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo-text">福气研究所</div>
-  <div class="tagline">✦ 高清手机壁纸 · 每日好运 ✦</div>
+  <div class="logo">福气研究所</div>
+  <div class="sub">✦ 手机壁纸灵感库 ✦</div>
 </header>
 
-<div class="source-tabs">
-  <button class="src-tab active" onclick="setSource('ai')"     id="tab-ai">🤖 AI生成 <span class="source-badge badge-ai">免费·原创</span></button>
-  <button class="src-tab"        onclick="setSource('wiki')"   id="tab-wiki">🖼️ 经典名画 <span class="source-badge badge-wiki">公共版权</span></button>
-  <button class="src-tab"        onclick="setSource('pexels')" id="tab-pexels">📷 摄影大片 <span class="source-badge badge-pexels">Pexels</span></button>
-</div>
-
-<div class="search-section">
+<div class="search-wrap">
   <div class="search-row">
-    <input id="searchInput" type="text" placeholder="输入关键词，如：招财锦鲤、牡丹…"/>
-    <button onclick="doSearch()">✨ 生成</button>
+    <input id="kw" type="text" placeholder="搜索壁纸灵感…"/>
+    <button onclick="doSearch()">生成</button>
   </div>
-  <div class="tag-row" id="tagRow"></div>
-  <div class="mode-toggle">
-    <button class="mode-btn active" id="btnLock" onclick="setMode('lock')">🔒 锁屏</button>
-    <button class="mode-btn"        id="btnHome" onclick="setMode('home')">📱 主屏</button>
-  </div>
-</div>
-
-<div class="ai-area" id="aiArea">
-  <div class="style-row" id="styleRow">
-    <span class="style-chip active" onclick="styleClick(this,'oil painting style')">🖼 油画</span>
-    <span class="style-chip" onclick="styleClick(this,'watercolor art')">🎨 水彩</span>
-    <span class="style-chip" onclick="styleClick(this,'Chinese ink wash painting')">🖌 水墨</span>
-    <span class="style-chip" onclick="styleClick(this,'dreamy soft aesthetic')">✨ 梦幻</span>
-    <span class="style-chip" onclick="styleClick(this,'minimalist')">🤍 极简</span>
-  </div>
-</div>
-
-<div id="infoBox" class="info-box info-ai">
-  🤖 由 Pollinations.ai 免费生成 · 完全原创 · 零成本 · 可商用
+  <div class="tags" id="tags"></div>
 </div>
 
 <div class="loading" id="loading">
-  <div class="spinner"></div><br/><span id="loadingText">正在生成好运壁纸…</span>
+  <div class="spinner"></div>
+  正在召唤好运…
 </div>
 <div class="gallery" id="gallery">
-  <div class="empty">选择标签或输入关键词，开始生成壁纸 ✨</div>
+  <div class="empty">点击上方标签，开始探索好运壁纸 ✨</div>
 </div>
 
-<!-- MODAL -->
-<div class="modal-bg" id="modalBg" onclick="closeModalBg(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="document.getElementById('modalBg').classList.remove('open')">✕</button>
-    <h2 id="modalTitle">🌸 下载壁纸</h2>
-    <div class="modal-meta" id="modalMeta"></div>
-    <div class="modal-phones" id="modalPhones"></div>
-    <div class="modal-dl-row">
-      <button class="modal-dl-btn" onclick="downloadImg('lock')">下载锁屏版</button>
-      <button class="modal-dl-btn" onclick="downloadImg('home')">下载主屏版</button>
-      <button class="modal-dl-btn primary" onclick="downloadImg('both')">⬇ 成套下载</button>
-    </div>
-    <div class="modal-credit" id="modalCredit"></div>
+<!-- LIGHTBOX -->
+<div class="lb-bg" id="lb" onclick="closeLb(event)">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="document.getElementById('lb').classList.remove('open')">✕</button>
+    <div class="lb-phones" id="lbPhones"></div>
+    <div class="lb-prompt" id="lbPrompt"></div>
   </div>
 </div>
 
 <script>
-// ── 配置 ──────────────────────────────────────────────
-const PEXELS_KEY = 'NqZqwTAmf3Y3VxDtIsaXzJYjWafZDXUDUPzgUcv6E1oOkL7Csq8Ha2uN';
-// Pollinations.ai & Wikimedia 无需 key
-// ─────────────────────────────────────────────────────
+const TAGS = [
+  { label: '🔴 红色锦鲤', prompt: 'lucky red koi fish swimming golden water lily pond Chinese auspicious, vibrant, ultra detailed' },
+  { label: '🌺 牡丹富贵', prompt: 'magnificent Chinese peony flowers blooming golden pink red, wealth prosperity auspicious, traditional Chinese painting style' },
+  { label: '🐉 神龙献瑞', prompt: 'magnificent Chinese golden dragon clouds celestial auspicious, traditional art, majestic, divine' },
+  { label: '🧧 财神爷',   prompt: 'Chinese God of Wealth Caishen golden robes smiling, traditional Chinese deity, auspicious, ornate background' },
+  { label: '🌕 月老缘分', prompt: 'Chinese Moon God Yuelao red thread fate romantic moonlight traditional deity illustration' },
+  { label: '🦋 蝴蝶运势', prompt: 'beautiful golden purple butterflies flowers good fortune auspicious Chinese style dreamy' },
+  { label: '☯ 观音菩萨', prompt: 'Guanyin Bodhisattva serene lotus moonlight celestial divine Chinese Buddhist art, golden light' },
+  { label: '🌟 紫微星运', prompt: 'Chinese purple star astrology fortune celestial map stars night sky mystical purple gold' },
+  { label: '🍀 幸运绿晶', prompt: 'green crystal jade lucky stone nature light ethereal glow fortune' },
+  { label: '🌈 七彩旺运', prompt: 'seven colors rainbow auspicious Chinese luck fortune swirling light vibrant magical' },
+  { label: '🪷 莲花净心', prompt: 'lotus flower pink white blooming pure water reflection golden light serene peaceful' },
+  { label: '🦚 孔雀开屏', prompt: 'peacock spreading feathers magnificent colorful iridescent auspicious lucky Chinese art' },
+  { label: '🌊 旺财蓝晶', prompt: 'deep ocean blue crystal water wealth fortune mystical glowing Chinese lucky aesthetic' },
+  { label: '🌸 桃花运势', prompt: 'pink peach blossom spring romantic lucky love fortune Japanese Chinese painting dreamy' },
+  { label: '🏮 红灯祈福', prompt: 'red lanterns glowing night sky golden light Chinese new year festive auspicious beautiful' },
+  { label: '🦁 貔貅招财', prompt: 'Chinese Pixiu mythical creature golden wealth fortune protector auspicious ornate' },
+];
 
-let currentSource = 'ai';
-let currentMode   = 'lock';
-let currentStyle  = 'oil painting style';
-let currentImages = [];
-let selectedImg   = null;
+let selectedPrompt = '';
+let currentImages  = [];
+let selectedImg    = null;
 
-const TAGS = {
-  ai: ['🌸 古典花卉','🐟 招财锦鲤','🌺 牡丹富贵','🌌 星空银河','🍀 幸运四叶草','🔴 红色锦鲤','☯ 禅意水墨','🌙 月光仙境'],
-  wiki: ['🌻 梵高向日葵','🌊 葛饰北斋','🌹 莫奈睡莲','🌸 日本浮世绘','🦁 卢梭丛林','🌅 透纳日落','🏛 古典静物','🌿 植物画'],
-  pexels: ['🌸 花卉特写','🏔 云海山川','🌊 海浪沙滩','🌃 城市夜景','🍂 秋日森林','❄ 冬日雪景','🌿 绿植清新','🐚 极简质感'],
-};
-
-// Pollinations AI 关键词映射（英文效果更好）
-const AI_PROMPT_MAP = {
-  '🌸 古典花卉': 'classical baroque flowers bouquet dark background',
-  '🐟 招财锦鲤': 'lucky koi fish golden red swimming Chinese auspicious',
-  '🌺 牡丹富贵': 'peony flowers Chinese traditional wealthy auspicious',
-  '🌌 星空银河': 'milky way galaxy starry night sky purple blue',
-  '🍀 幸运四叶草': 'four leaf clover lucky green nature',
-  '🔴 红色锦鲤': 'red koi fish water lily Chinese lucky',
-  '☯ 禅意水墨': 'Chinese zen ink wash painting bamboo mountain misty',
-  '🌙 月光仙境': 'moonlight fantasy dreamy ethereal lotus pond',
-};
-
-const WIKI_SEARCHES = {
-  '🌻 梵高向日葵':  'Sunflowers Van Gogh 1888',
-  '🌊 葛饰北斋':    'Great Wave Kanagawa Hokusai',
-  '🌹 莫奈睡莲':    'Water Lilies Claude Monet',
-  '🌸 日本浮世绘':  'Japanese ukiyo-e woodblock print flower',
-  '🦁 卢梭丛林':    'Henri Rousseau jungle tiger',
-  '🌅 透纳日落':    'Joseph Turner sunset seascape',
-  '🏛 古典静物':    'Dutch Golden Age still life flowers painting',
-  '🌿 植物画':      'botanical illustration vintage flowers',
-};
-
-const PEXELS_SEARCHES = {
-  '🌸 花卉特写': 'flowers close up macro',
-  '🏔 云海山川': 'mountain mist clouds landscape',
-  '🌊 海浪沙滩': 'ocean waves beach',
-  '🌃 城市夜景': 'city lights night',
-  '🍂 秋日森林': 'autumn forest golden',
-  '❄ 冬日雪景':  'winter snow scenery',
-  '🌿 绿植清新': 'green plants minimalist',
-  '🐚 极简质感': 'minimalist texture abstract',
-};
-
-// ── Source & Style ──
-function setSource(src) {
-  currentSource = src;
-  ['ai','wiki','pexels'].forEach(s =>
-    document.getElementById(`tab-${s}`).classList.toggle('active', s===src)
-  );
-  document.getElementById('aiArea').classList.toggle('show', src==='ai');
-
-  const info = document.getElementById('infoBox');
-  const configs = {
-    ai:     { cls:'info-ai',     txt:'🤖 由 Pollinations.ai 免费生成 · 完全原创 · 零成本 · 可商用' },
-    wiki:   { cls:'info-wiki',   txt:'🖼 图片来自 Wikimedia Commons · 公共版权（Public Domain）· 可免费商用' },
-    pexels: { cls:'info-pexels', txt:'📷 图片来自 Pexels · Pexels License · 允许商业使用' },
+// render tags
+const tagWrap = document.getElementById('tags');
+TAGS.forEach((t, i) => {
+  const el = document.createElement('span');
+  el.className = 'tag' + (i===0?' active':'');
+  el.textContent = t.label;
+  el.onclick = () => {
+    document.querySelectorAll('.tag').forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('kw').value = t.label;
+    selectedPrompt = t.prompt;
+    doSearch();
   };
-  info.className = 'info-box ' + configs[src].cls;
-  info.textContent = configs[src].txt;
-  renderTags();
+  tagWrap.appendChild(el);
+});
+
+function doSearch() {
+  const kw = document.getElementById('kw').value.trim();
+  if (!kw) return;
+  // use mapped prompt if available, else use kw directly
+  const tag = TAGS.find(t=>t.label===kw);
+  const prompt = tag ? tag.prompt : kw + ', beautiful auspicious Chinese style, phone wallpaper, ultra detailed 4K';
+  selectedPrompt = prompt;
+  generate(prompt, kw);
+}
+
+function generate(prompt, label) {
+  document.getElementById('loading').style.display='block';
+  document.getElementById('gallery').innerHTML='';
+
+  const fullPrompt = prompt + ', phone wallpaper portrait 9:16, ultra detailed, 4K, beautiful composition, no text no watermark';
   currentImages = [];
-  document.getElementById('gallery').innerHTML = '<div class="empty">选择标签或输入关键词 ✨</div>';
-}
 
-function styleClick(el, style) {
-  document.querySelectorAll('.style-chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  currentStyle = style;
-}
-
-function setMode(m) {
-  currentMode = m;
-  document.getElementById('btnLock').classList.toggle('active', m==='lock');
-  document.getElementById('btnHome').classList.toggle('active', m==='home');
-  renderGallery();
-}
-
-function renderTags() {
-  const row = document.getElementById('tagRow');
-  row.innerHTML = '';
-  TAGS[currentSource].forEach((t,i) => {
-    const el = document.createElement('span');
-    el.className = 'tag' + (i===0?' active':'');
-    el.textContent = t;
-    el.onclick = () => tagClick(el, t);
-    row.appendChild(el);
-  });
-}
-
-function tagClick(el, kw) {
-  document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('searchInput').value = kw;
-  doSearch();
-}
-
-// ── SEARCH ──
-async function doSearch() {
-  const raw = document.getElementById('searchInput').value.trim();
-  if (!raw) return;
-  showLoading(true);
-  document.getElementById('gallery').innerHTML = '';
-  try {
-    if      (currentSource==='ai')     await fetchAI(raw);
-    else if (currentSource==='wiki')   await fetchWiki(raw);
-    else                               await fetchPexels(raw);
-  } catch(e) {
-    console.error(e);
-    document.getElementById('gallery').innerHTML = '<div class="empty">加载失败，请重试 🌸</div>';
+  for (let i=0;i<8;i++) {
+    const seed = Math.floor(Math.random()*999999);
+    const url  = `https://image.pollinations.ai/prompt/${encodeURIComponent(fullPrompt)}?width=1080&height=1920&seed=${seed}&nologo=true&enhance=true`;
+    currentImages.push({ url, seed, label, prompt: fullPrompt });
   }
-  showLoading(false);
-}
 
-function showLoading(on) {
-  document.getElementById('loading').style.display = on ? 'block' : 'none';
-}
-
-// ── AI: Pollinations.ai ──
-// 完全免费，无需API Key，直接URL生成图片
-async function fetchAI(kw) {
-  const prompt = AI_PROMPT_MAP[kw] || kw;
-  const fullPrompt = `${prompt}, ${currentStyle}, phone wallpaper, vertical portrait, highly detailed, beautiful, 4K, no text`;
-
-  // Pollinations.ai: 每个seed生成不同变体
-  const imgs = Array.from({length:8}, (_,i) => {
-    const seed = Math.floor(Math.random()*99999) + i*1000;
-    const encodedPrompt = encodeURIComponent(fullPrompt);
-    const url = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=768&height=1366&seed=${seed}&nologo=true`;
-    return {
-      id: i, url, thumb: url,
-      alt: kw, source: 'ai',
-      credit: 'Pollinations.ai · 免费AI生成',
-      author: '福气研究所',
-    };
-  });
-  currentImages = imgs;
+  document.getElementById('loading').style.display='none';
   renderGallery();
 }
 
-// ── Wiki: Wikimedia Commons ──
-async function fetchWiki(kw) {
-  const q = WIKI_SEARCHES[kw] || kw;
-  document.getElementById('loadingText').textContent = '正在搜索名画…';
-
-  try {
-    const searchRes = await fetch(
-      `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(q)}&srnamespace=6&srlimit=12&format=json&origin=*`
-    );
-    const searchData = await searchRes.json();
-    const hits = searchData?.query?.search || [];
-    if (!hits.length) throw new Error('no results');
-
-    const titles = hits.slice(0,8).map(h=>h.title).join('|');
-    const infoRes = await fetch(
-      `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(titles)}&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=800&format=json&origin=*`
-    );
-    const infoData = await infoRes.json();
-    const pages = Object.values(infoData?.query?.pages||{});
-
-    const imgs = pages
-      .filter(p => p.imageinfo?.[0]?.thumburl)
-      .map((p,i) => ({
-        id: i,
-        url:   p.imageinfo[0].url,
-        thumb: p.imageinfo[0].thumburl,
-        alt:   (p.title||kw).replace('File:','').replace(/\.[^.]+$/,''),
-        source:'wiki',
-        credit:'Wikimedia Commons · Public Domain',
-        author: (p.imageinfo[0].extmetadata?.Artist?.value||'').replace(/<[^>]*>/g,'') || '公共版权',
-      }));
-
-    currentImages = imgs.length ? imgs : getFallback(kw,'wiki');
-  } catch {
-    currentImages = getFallback(kw,'wiki');
-  }
-  renderGallery();
-}
-
-// ── Pexels ──
-async function fetchPexels(kw) {
-  const q = PEXELS_SEARCHES[kw] || kw;
-  document.getElementById('loadingText').textContent = '正在搜索摄影作品…';
-
-  try {
-    const res = await fetch(
-      `https://api.pexels.com/v1/search?query=${encodeURIComponent(q)}&per_page=12&orientation=portrait`,
-      { headers: { Authorization: PEXELS_KEY } }
-    );
-    const data = await res.json();
-
-    currentImages = (data.photos||[]).map((p,i) => ({
-      id: p.id,
-      url:   p.src.original,
-      thumb: p.src.large,
-      alt:   p.alt || kw,
-      source:'pexels',
-      credit:`Pexels · ${p.photographer}`,
-      author: p.photographer,
-      pexelsUrl: p.url,
-    }));
-
-    if (!currentImages.length) currentImages = getFallback(kw,'pexels');
-  } catch(e) {
-    console.error(e);
-    currentImages = getFallback(kw,'pexels');
-  }
-  renderGallery();
-}
-
-function getFallback(kw, src) {
-  return Array.from({length:6},(_,i)=>({
-    id:i, url:`https://picsum.photos/seed/${src}${kw}${i}/1080/1920`,
-    thumb:`https://picsum.photos/seed/${src}${kw}${i}/400/800`,
-    alt:kw, source:src, credit:'示例图片', author:'',
-  }));
-}
-
-// ── RENDER ──
 function renderGallery() {
   const g = document.getElementById('gallery');
-  g.innerHTML = '';
-  if (!currentImages.length) {
-    g.innerHTML = '<div class="empty">没有找到结果，换个关键词试试 🌸</div>';
-    return;
-  }
-  currentImages.forEach(img => {
+  g.innerHTML='';
+  const now = new Date();
+  const hh  = String(now.getHours()).padStart(2,'0');
+  const mm  = String(now.getMinutes()).padStart(2,'0');
+
+  currentImages.forEach((img,i) => {
     const card = document.createElement('div');
-    card.className = 'phone-card';
-    card.onclick = () => openModal(img);
+    card.className='card';
+    card.onclick=()=>openLb(img);
 
-    const frame = makePhoneFrame(img, currentMode, 136, 272);
-    const bottom = document.createElement('div');
-    bottom.className = 'card-bottom';
-    const srcLabel = {ai:'🤖 AI原创', wiki:'🖼 名画', pexels:'📷 摄影'}[img.source];
-    bottom.innerHTML = `<span class="card-src">${srcLabel}</span>`;
-    const dlBtn = document.createElement('button');
-    dlBtn.className = 'dl-btn';
-    dlBtn.textContent = '⬇ 成套下载';
-    dlBtn.onclick = e => { e.stopPropagation(); openModal(img); };
-    bottom.appendChild(dlBtn);
+    const phone = document.createElement('div');
+    phone.className='phone';
 
-    card.appendChild(frame);
-    card.appendChild(bottom);
+    const sk = document.createElement('div');
+    sk.className='skeleton';
+    phone.appendChild(sk);
+
+    const im = document.createElement('img');
+    im.className='phone-img';
+    im.src = img.url;
+    im.alt = img.label;
+    im.onload  = ()=>{ im.classList.add('loaded'); sk.remove(); };
+    im.onerror = ()=>{ im.src=`https://picsum.photos/seed/${i}${Date.now()}/1080/1920`; im.classList.add('loaded'); sk.remove(); };
+    phone.appendChild(im);
+
+    const ov = document.createElement('div');
+    ov.className='lock-ov';
+    ov.innerHTML=`<div class="l-time">${hh}:${mm}</div><div class="l-date">February 22 · Saturday</div>`;
+    phone.appendChild(ov);
+
+    card.appendChild(phone);
     g.appendChild(card);
   });
 }
 
-function makePhoneFrame(img, mode, w, h) {
-  const frame = document.createElement('div');
-  frame.className = 'phone-frame';
-  frame.style.width = w+'px';
-  frame.style.height = h+'px';
-
-  // skeleton loader
-  const sk = document.createElement('div');
-  sk.className = 'skeleton';
-  frame.appendChild(sk);
-
-  const im = document.createElement('img');
-  im.src = img.thumb;
-  im.alt = img.alt;
-  im.onload  = () => { im.style.opacity='1'; sk.style.display='none'; };
-  im.onerror = () => {
-    im.src = `https://picsum.photos/seed/err${img.id}/400/800`;
-    im.style.opacity='1'; sk.style.display='none';
-  };
-  frame.appendChild(im);
-
-  if (mode === 'lock') {
-    const ov = document.createElement('div');
-    ov.className = 'lock-overlay';
-    const now = new Date();
-    const hh = String(now.getHours()).padStart(2,'0');
-    const mm = String(now.getMinutes()).padStart(2,'0');
-    const sz = w < 120 ? '1.1rem' : '1.5rem';
-    ov.innerHTML = `<div class="lock-time" style="font-size:${sz}">${hh}:${mm}</div><div class="lock-date">February 22, Saturday</div>`;
-    frame.appendChild(ov);
-  } else {
-    const ov = document.createElement('div');
-    ov.className = 'home-overlay';
-    let html = '<div class="app-grid">';
-    for(let j=0;j<12;j++) html += '<div class="app-icon"></div>';
-    html += '</div><div class="dock">';
-    for(let j=0;j<4;j++) html += '<div class="dock-icon"></div>';
-    html += '</div>';
-    ov.innerHTML = html;
-    frame.appendChild(ov);
-  }
-  return frame;
-}
-
-// ── MODAL ──
-function openModal(img) {
+// LIGHTBOX
+function openLb(img) {
   selectedImg = img;
-  document.getElementById('modalTitle').textContent = `🌸 ${img.alt||'下载壁纸'}`;
-  document.getElementById('modalMeta').textContent = img.credit||'';
-  document.getElementById('modalCredit').textContent =
-    img.source==='wiki'   ? '✅ Wikimedia Commons 公共版权，可商用' :
-    img.source==='pexels' ? '✅ Pexels License，可商用，无需标注' :
-                            '✅ AI原创生成，版权归本店所有，可商用';
+  const now=new Date();
+  const hh=String(now.getHours()).padStart(2,'0');
+  const mm=String(now.getMinutes()).padStart(2,'0');
 
-  const mp = document.getElementById('modalPhones');
-  mp.innerHTML = '';
-  ['lock','home'].forEach(m => mp.appendChild(makePhoneFrame(img, m, 100, 200)));
-  document.getElementById('modalBg').classList.add('open');
+  const lbP = document.getElementById('lbPhones');
+  lbP.innerHTML='';
+
+  // lock screen
+  const modes=[
+    {type:'lock', w:110, h:224},
+    {type:'home', w:110, h:224},
+  ];
+  modes.forEach(({type,w,h})=>{
+    const ph=document.createElement('div');
+    ph.className='phone';
+    ph.style.width=w+'px'; ph.style.height=h+'px';
+
+    const sk=document.createElement('div'); sk.className='skeleton'; ph.appendChild(sk);
+    const im=document.createElement('img'); im.className='phone-img'; im.src=img.url;
+    im.onload=()=>{im.classList.add('loaded');sk.remove();};
+    ph.appendChild(im);
+
+    if(type==='lock'){
+      const ov=document.createElement('div'); ov.className='lock-ov';
+      ov.innerHTML=`<div class="l-time" style="font-size:1rem">${hh}:${mm}</div><div class="l-date">February 22</div>`;
+      ph.appendChild(ov);
+    } else {
+      const ov=document.createElement('div');
+      ov.style.cssText='position:absolute;inset:0;z-index:5;display:grid;grid-template-rows:1fr auto;padding:12px 7px 7px;gap:4px;';
+      let h2='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;align-content:start;padding-top:6px;">';
+      for(let j=0;j<12;j++) h2+='<div style="aspect-ratio:1;background:rgba(255,200,170,.5);border-radius:7px;backdrop-filter:blur(3px)"></div>';
+      h2+='</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(255,190,160,.35);border-radius:11px;padding:4px;backdrop-filter:blur(6px)">';
+      for(let j=0;j<4;j++) h2+='<div style="aspect-ratio:1;background:rgba(255,200,180,.5);border-radius:7px"></div>';
+      h2+='</div>';
+      ov.innerHTML=h2; ph.appendChild(ov);
+    }
+    lbP.appendChild(ph);
+  });
+
+  // show original image URL for admin download
+  document.getElementById('lbPrompt').innerHTML=
+    `🌸 锁屏 · 主屏 预览效果<br/>
+     <span style="opacity:0.6;font-size:0.65rem">seed: ${img.seed}</span>`;
+
+  document.getElementById('lb').classList.add('open');
 }
 
-function closeModalBg(e) {
-  if (e.target===document.getElementById('modalBg'))
-    document.getElementById('modalBg').classList.remove('open');
+function closeLb(e) {
+  if(e.target===document.getElementById('lb'))
+    document.getElementById('lb').classList.remove('open');
 }
 
-// ── DOWNLOAD（Canvas合成）──
-async function downloadImg(type) {
-  if (!selectedImg) return;
-  const modes = type==='both' ? ['lock','home'] : [type==='lock'?'lock':'home'];
-
-  for (const m of modes) {
-    await canvasDownload(selectedImg, m);
-  }
-  document.getElementById('modalBg').classList.remove('open');
-}
-
-async function canvasDownload(img, mode) {
-  const W = 1080, H = 1920;
-  const canvas = document.createElement('canvas');
-  canvas.width = W; canvas.height = H;
-  const ctx = canvas.getContext('2d');
-
-  // 加载图片
-  const image = new Image();
-  image.crossOrigin = 'anonymous';
-  await new Promise((res,rej) => {
-    image.onload = res;
-    image.onerror = rej;
-    image.src = img.url;
-  }).catch(() => {});
-
-  // 绘制背景图（cover fit）
-  if (image.complete && image.naturalWidth) {
-    const scale = Math.max(W/image.naturalWidth, H/image.naturalHeight);
-    const sw = image.naturalWidth*scale, sh = image.naturalHeight*scale;
-    ctx.drawImage(image, (W-sw)/2, (H-sh)/2, sw, sh);
-  } else {
-    ctx.fillStyle = '#1a0a02';
-    ctx.fillRect(0,0,W,H);
-  }
-
-  // 锁屏：叠加时间
-  if (mode==='lock') {
-    ctx.fillStyle='rgba(0,0,0,0.18)';
-    ctx.fillRect(0,0,W,H*0.35);
-    const now = new Date();
-    const hh=String(now.getHours()).padStart(2,'0');
-    const mm=String(now.getMinutes()).padStart(2,'0');
-    ctx.fillStyle='rgba(255,255,255,0.92)';
-    ctx.font='bold 180px -apple-system,sans-serif';
-    ctx.textAlign='center';
-    ctx.fillText(`${hh}:${mm}`, W/2, 420);
-    ctx.font='52px -apple-system,sans-serif';
-    ctx.fillStyle='rgba(255,255,255,0.75)';
-    ctx.fillText('February 22, Saturday', W/2, 510);
-  }
-
-  // 下载
-  const a = document.createElement('a');
-  a.href = canvas.toDataURL('image/jpeg',0.92);
-  a.download = `福气研究所_${mode==='lock'?'锁屏':'主屏'}_${img.alt}.jpg`;
-  a.click();
-}
-
-// ── INIT ──
-window.onload = () => {
-  renderTags();
-  document.getElementById('searchInput').value = TAGS.ai[0];
-  document.getElementById('aiArea').classList.add('show');
-  doSearch();
+// init
+window.onload=()=>{
+  const first=TAGS[0];
+  document.getElementById('kw').value=first.label;
+  selectedPrompt=first.prompt;
+  generate(first.prompt, first.label);
 };
 </script>
 </body>
